@@ -15,12 +15,12 @@ namespace Week10ProjectDay1
 
         public override void ViewTitle()
         {
-            base.ViewTitle();
+            
             Console.WriteLine("Title: " + title);
             Console.WriteLine("ISBN: " + isbn);
             Console.WriteLine("Length: " + length + " minutes.");
             Console.WriteLine("Status: " + status);
-            
+            base.ViewTitle();
         }
 
         public override void AddTitle()
