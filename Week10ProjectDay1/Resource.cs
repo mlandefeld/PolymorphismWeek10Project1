@@ -13,6 +13,9 @@ namespace Week10ProjectDay1
         private int length;
         private string status = "Available";
 
+        List<string> resources = new List<string>();
+
+
         public string Title
         {
             get { return this.title; }
@@ -49,6 +52,7 @@ namespace Week10ProjectDay1
         {
             Console.Write("Enter then name of the resource you wish to add: ");
             string newTitle = Console.ReadLine();
+            resources.Add(newTitle);
             Console.Write("Enter the ISBN: ");
             string newIsbn = Console.ReadLine();
             Console.Write("What is the page length? ");
