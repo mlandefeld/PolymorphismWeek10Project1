@@ -8,10 +8,10 @@ namespace Week10ProjectDay1
 {
     class Book : Resource
     {
-        private string title = "The Most Interesting Book";
-        private int isbn = 1111111111;
-        private int length = 583;
-        private string status = "Available";
+        public Book(string title, int isbn, int length) : base(title, isbn, length)
+        {
+
+        }
 
         public override void CheckOut()
         {
@@ -24,13 +24,10 @@ namespace Week10ProjectDay1
             base.CheckOut();
         }
 
-        public override void ViewTitle()
+        public override Resource AddTitle(string title, int isbn, int length)
         {
-            Console.WriteLine("Title: " + title);
-            Console.WriteLine("ISBN: " + isbn);
-            Console.WriteLine("Length: " + length + " pages.");
-            Console.WriteLine("Status: " + status);
-            base.AddTitle();
+            Book book = new Book(title, isbn, length);
+            return book;
         }
     }
 }

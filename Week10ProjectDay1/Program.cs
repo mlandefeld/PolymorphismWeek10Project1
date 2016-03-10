@@ -11,16 +11,13 @@ namespace Week10ProjectDay1
         static void Main(string[] args)
         {
 
-            DVD dvd = new DVD();
-            Book book = new Book();
-            Magazine mag = new Magazine();
-
             if (Console.BackgroundColor == ConsoleColor.Black)
             {
                 Console.BackgroundColor = ConsoleColor.White;
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.Clear();
             }
+
 
             Console.Title = "Resource Library";
             string s = "Resource Library";
@@ -44,12 +41,10 @@ namespace Week10ProjectDay1
                 if (input == "1")
                 {
                     Console.Clear();
-                    string title = ("\n\n\t\t\tView All Resources:\n\t\t\t*********************");//Only available ones?
+                    string title = ("\n\n\t\t\tView All Resources:\n\t\t\t*********************");
                     Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine(title);
-                    dvd.ViewTitle();
-                    book.ViewTitle();
-                    mag.ViewTitle();
+                    command.ViewResources();
                     Console.WriteLine(menu);
                     input = Console.ReadLine();
                     continue;
@@ -62,29 +57,25 @@ namespace Week10ProjectDay1
                     Console.SetCursorPosition((Console.WindowWidth - s.Length) / 2, Console.CursorTop);
                     Console.WriteLine(title);
                     Console.WriteLine("Which type of resource would you like to add?\n1.DVD\n2.Book\n3.Magazine");
-                    string NewInput = Console.ReadLine();
+                    int NewInput = int.Parse(Console.ReadLine());
                     while (true)
                     {
-                        if (NewInput == "1")
+                        Console.Write("Enter then name of the resource you wish to add: ");
+                        string newTitle = Console.ReadLine();
+                        Console.Write("Enter the ISBN: ");
+                        int newIsbn = int.Parse(Console.ReadLine());
+                        Console.Write("What is the page length? ");
+                        int newLenght = int.Parse(Console.ReadLine());
+                        if(true)
                         {
-                            dvd.CheckOut();
-                            break;
-                        }
-                        else if (NewInput == "2")
-                        {
-                            book.CheckOut();
-                            break;
-                        }
-                        else if (NewInput == "3")
-                        {
-                            mag.CheckOut();
+                            command.AddResource(NewInput, newTitle, newIsbn, newLenght);
                             break;
                         }
                         else
                         {
                             Console.WriteLine("Try Again! Your input needs to be a valid number.");
                             break;
-                        }
+                        }   
                     }
                     Console.WriteLine(menu);
                     input = Console.ReadLine();
@@ -102,17 +93,14 @@ namespace Week10ProjectDay1
                     {
                         if (NewInput == "1")
                         {
-                            dvd.AddTitle();
                             break;
                         }
                         else if(NewInput == "2")
                         {
-                            book.AddTitle();
                             break;
                         }
                         else if(NewInput == "3")
                         {
-                            mag.AddTitle();
                             break;
                         }
                         else
@@ -137,17 +125,14 @@ namespace Week10ProjectDay1
                     {
                         if (NewInput == "1")
                         {
-                            dvd.CheckIn();
                             break;
                         }
                         else if (NewInput == "2")
                         {
-                            book.CheckIn();
                             break;
                         }
                         else if (NewInput == "3")
                         {
-                            mag.CheckIn();
                             break;
                         }
                         else

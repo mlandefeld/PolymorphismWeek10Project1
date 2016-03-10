@@ -8,10 +8,10 @@ namespace Week10ProjectDay1
 {
     class Magazine : Resource
     {
-        private string title = "The Coolest Magazine";
-        private int isbn;
-        private int length;
-        private string status = "Available";
+        public Magazine(string title, int isbn, int length) : base(title, isbn, length)
+        {
+
+        }
 
         public override void CheckOut()
         {
@@ -22,6 +22,12 @@ namespace Week10ProjectDay1
             Console.WriteLine(returnTitle + " has been checked out.");
             Console.WriteLine(answer + " due date is: ");
             base.CheckOut();
+        }
+
+        public override Resource AddTitle(string title, int isbn, int length)
+        {
+            Magazine magazine = new Magazine(title, isbn, length);
+            return magazine;
         }
     }
 }

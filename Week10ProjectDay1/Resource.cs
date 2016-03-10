@@ -13,8 +13,12 @@ namespace Week10ProjectDay1
         private int length;
         private string status = "Available";
 
-        List<string> resources = new List<string>();
-
+        public Resource(string title, int isbn, int length)
+        {
+            this.title = title;
+            this.isbn = isbn;
+            this.length = length;
+        }
 
         public string Title
         {
@@ -40,24 +44,12 @@ namespace Week10ProjectDay1
             set { this.status = value; }
         }
 
-        public virtual void ViewTitle()
+        public virtual string ViewTitle()
         {
-            Console.WriteLine("Title: " + title);
-            Console.WriteLine("ISBN: " + isbn);
-            Console.WriteLine("Length: " + length + " pages.");
-            Console.WriteLine("Status: " + status);
-        } 
-
-        public virtual void AddTitle()
-        {
-            Console.Write("Enter then name of the resource you wish to add: ");
-            string newTitle = Console.ReadLine();
-            resources.Add(newTitle);
-            Console.Write("Enter the ISBN: ");
-            string newIsbn = Console.ReadLine();
-            Console.Write("What is the page length? ");
-            int newLenght = int.Parse(Console.ReadLine());
+            return this.Title + " " + this.ISBN + " " + this.Length + " pages " + this.Status;
         }
+
+        public abstract Resource AddTitle(string title, int isbn, int length);
 
         public virtual void CheckOut()
         {
