@@ -64,7 +64,14 @@ namespace Week10ProjectDay1
                         string newTitle = Console.ReadLine();
                         Console.Write("Enter the ISBN: ");
                         int newIsbn = int.Parse(Console.ReadLine());
-                        Console.Write("What is the page length? ");
+                        if(NewInput == 1)
+                        {
+                            Console.WriteLine("What is the length in minutes? ");
+                        }
+                        else
+                        {
+                            Console.Write("What is the page length? ");
+                        }
                         int newLenght = int.Parse(Console.ReadLine());
                         if(true)
                         {
