@@ -13,46 +13,18 @@ namespace Week10ProjectDay1
         public Commands()
         {
             List<Resource> objects = new List<Resource>();
-            objects.Add(new DVD("The Best Movie", 1212121212, 120));
-            objects.Add(new Book("The Most Interesting Book", 1313131313, 450));
-            objects.Add(new Magazine("The Coolest Magazine", 1414114141, 150));
+            objects.Add(new DVD());
+            objects.Add(new Book());
+            objects.Add(new Magazine());
 
             this.resources = objects;
         }
 
-        public void AddResource(int type, string title, int isbn, int length)
+        public List<Resource> Resources
         {
-            Resource resource;
-            if (type == 1)
-            {
-                DVD dvd = new DVD("test", 45, 7);
-                resource = dvd.AddTitle(title, isbn, length);
-            }
-            else if (type == 2)
-            {
-                Book book = new Book("test", 45, 7);
-                resource = book.AddTitle(title, isbn, length);
-            }
-            else if (type == 3)
-            {
-                Magazine magazine = new Magazine("test", 45, 7);
-                resource = magazine.AddTitle(title, isbn, length);
-            }
-            else
-            {
-                throw new Exception();
-            }
-
-            this.resources.Add(resource);
+            get { return this.resources; }
         }
 
-        public void ViewResources()
-        {
-            foreach(Resource resource in this.resources)
-            {                
-                Console.WriteLine(resource.ViewTitle());
-            }
-        }
         public static void Exit()
         {
             Console.Clear();

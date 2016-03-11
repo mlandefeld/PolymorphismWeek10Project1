@@ -8,21 +8,15 @@ namespace Week10ProjectDay1
 {
     class DVD : Resource
     {
-        public DVD(string title, int isbn, int length) : base(title, isbn, length)
+        public override void AddTitle()
         {
-
-        }
-
-        public override string ViewTitle()
-        {
-            return this.Title + " " + this.ISBN + " " + this.Length + " minutes " + this.Status;
-        }
-
-        public override Resource AddTitle(string title, int isbn, int length)
-        {
-            DVD dvd = new DVD(title, isbn, length);
-
-            return dvd;
+            Console.WriteLine("What is the title you wish to add? ");
+            string title = Console.ReadLine();
+            Console.WriteLine("What is the isbn? ");
+            int isbn = int.Parse(Console.ReadLine());
+            Console.WriteLine("What is the length in minutes? ");
+            int length = int.Parse(Console.ReadLine());
+            this.Status = "Available";
         }
 
     }

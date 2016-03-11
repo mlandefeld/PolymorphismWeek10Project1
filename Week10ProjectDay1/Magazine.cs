@@ -8,10 +8,6 @@ namespace Week10ProjectDay1
 {
     class Magazine : Resource
     {
-        public Magazine(string title, int isbn, int length) : base(title, isbn, length)
-        {
-
-        }
 
         public override void CheckOut()
         {
@@ -24,10 +20,5 @@ namespace Week10ProjectDay1
             base.CheckOut();
         }
 
-        public override Resource AddTitle(string title, int isbn, int length)
-        {
-            Magazine magazine = new Magazine(title, isbn, length);
-            return magazine;
-        }
     }
 }
