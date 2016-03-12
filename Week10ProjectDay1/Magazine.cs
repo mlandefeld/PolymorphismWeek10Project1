@@ -9,15 +9,20 @@ namespace Week10ProjectDay1
     class Magazine : Resource
     {
 
+        public Magazine(string title, int isbn, int length) : base(title, isbn,length)
+        {
+
+        }
+
         public override void CheckOut()
         {
-            Console.Write("Enter then name of the resource you wish to check out: ");
-            string returnTitle = Console.ReadLine();
+            this.Status = "Checked Out";
             DateTime today = DateTime.Now;
             DateTime answer = today.AddDays(2);
-            Console.WriteLine(returnTitle + " has been checked out.");
-            Console.WriteLine(answer + " due date is: ");
-            base.CheckOut();
+
+            Console.WriteLine("The item is due back in two days.");
+            Console.WriteLine(this.Title + " has been checked out.");
+            Console.WriteLine("Due date is: " + answer);
         }
 
     }

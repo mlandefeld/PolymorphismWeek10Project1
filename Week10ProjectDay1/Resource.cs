@@ -37,9 +37,18 @@ namespace Week10ProjectDay1
             set { this.status = value; }
         }
 
+        public Resource(string title, int isbn, int length)
+        {
+            this.Title = title;
+            this.ISBN = isbn;
+            this.ISBN = length;
+            this.Status = "Available";
+        }
+
+
         public virtual void ViewTitle()
         {
-            Console.WriteLine( this.Title + " " + this.ISBN + " " + this.Length + " pages " + this.Status);
+            Console.WriteLine( this.Title + ", " + this.ISBN + ", " + this.Length + " pages, " + this.Status);
         }
 
         public virtual void AddTitle()
@@ -50,25 +59,28 @@ namespace Week10ProjectDay1
             int isbn = int.Parse(Console.ReadLine());
             Console.WriteLine("What is the page length?");
             int length = int.Parse(Console.ReadLine());
+
+            this.Title = title;
+            this.ISBN = isbn;
+            this.Length = length;
+
             this.Status = "Available";
         }
 
         public virtual void CheckOut()
         {
-            Console.Write("Enter then name of the resource you wish to check out: ");
-            string returnTitle = Console.ReadLine();
+            this.Status = "Checked Out";
             DateTime today = DateTime.Now;
             DateTime answer = today.AddDays(3);
-            Console.WriteLine(returnTitle+ " has been checked out.");
-            Console.WriteLine(answer + " due date is: ");
 
+            Console.WriteLine("The item is due back in three days.");
+            Console.WriteLine(this.Title + " has been checked out.");
+            Console.WriteLine("Due date is: "+answer);
         }
 
         public virtual void CheckIn()
         {
-            Console.WriteLine("Enter then name of the resource you wish to return: ");
-            string checkInTitle = Console.ReadLine();
-            Console.WriteLine("Thank you for your return of " + checkInTitle + ".");
+            this.Status = "Available";
         }
 
     }

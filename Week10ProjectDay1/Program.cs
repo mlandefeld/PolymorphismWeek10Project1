@@ -14,26 +14,32 @@ namespace Week10ProjectDay1
 
             foreach(Resource resource in command.Resources)
             {
+                Console.WriteLine("************************");
                 resource.ViewTitle();
             }
 
             foreach (Resource resource in command.Resources)
             {
+                Console.WriteLine("************************");
                 resource.AddTitle();
                 resource.ViewTitle();
             }
 
             foreach (Resource resource in command.Resources)
             {
-                resource.CheckIn();
+                Console.WriteLine("************************");
+                resource.CheckOut();
                 resource.ViewTitle();
             }
 
             foreach (Resource resource in command.Resources)
             {
-                resource.CheckOut();
+                Console.WriteLine("************************");
+                resource.CheckIn();
                 resource.ViewTitle();
             }
+
+            
 
         }
     }

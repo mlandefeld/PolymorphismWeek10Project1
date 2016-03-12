@@ -13,9 +13,9 @@ namespace Week10ProjectDay1
         public Commands()
         {
             List<Resource> objects = new List<Resource>();
-            objects.Add(new DVD());
-            objects.Add(new Book());
-            objects.Add(new Magazine());
+            objects.Add(new DVD("DVD Title", 100, 1));
+            objects.Add(new Book("Book Title",200, 2));
+            objects.Add(new Magazine("Magazine Title", 300, 3));
 
             this.resources = objects;
         }
